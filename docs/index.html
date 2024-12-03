@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mimic Assist Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mimic Assist Demo</h1>
+      <p>Click the brain icon next to the elements to interact.</p>
+
+      <div
+        class="email-template mimic-assist"
+        data-expected-response="Expected email content here"
+      >
+        <p>Dear [Customer],</p>
+        <p>
+          We are excited to offer you our new products that we believe you'll
+          love.
+        </p>
+        <p>Sincerely,</p>
+        <p>Your [Company]</p>
+      </div>
+
+      <div
+        class="code-example mimic-assist"
+        data-expected-response="Expected code output"
+        data-prompt-prefix="Function for"
+      >
+        <pre><code class="language-javascript">
+// This function adds two numbers
+function add(a, b) {
+  return a + b;
+}
+      </code></pre>
+      </div>
+      <div
+        class="code-example mimic-assist"
+        data-expected-response="Expected code output"
+        data-prompt-prefix="Store for"
+        data-prompt=""
+      >
+        <pre><code class="language-javascript">
+import { create } from 'zustand'
+
+//create a store for bears
+const useBearStore = create((set) => ({
+  bears: 0,
+  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: 0 }),
+}))
+      </code></pre>
+      </div>
+      <div
+        class="code-example mimic-assist"
+        data-expected-response="Expected code output"
+        data-prompt-prefix="Store for"
+        data-prompt-use-streaming="false"
+      >
+        <pre><code class="language-javascript">
+import { create } from 'zustand'
+
+//create a store for bears
+const useBearStore = create((set) => ({
+  bears: 0,
+  increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
+  removeAllBears: () => set({ bears: 0 }),
+}))
+      </code></pre>
+      </div>
+    </div>
+
+    <script src="./mimic-assist.js"></script>
+
+    <script>
+      MimicAssist.initMimicAssist();
+    </script>
+  </body>
+</html>
